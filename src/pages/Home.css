@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Luckiest+Guy&display=swap');
+.base {
+    position: absolute;
+    width: 360px;
+    height: 740px;
+    background: linear-gradient(200.89deg, rgba(0, 102, 255, 0.6) 26.42%, rgba(171, 109, 233, 0.6) 67.68%);
+    font-family: 'Bangers', cursive;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+  .taBase {
+    position: absolute;
+    width: 360px;
+    height: 76px;
+    background: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-left: 5px;
+    padding-top: 20px;
+  }
+
+  .calendar {
+    font-size: 23px;
+    color: white;
+  }
+
+  .finance {
+    font-size: 23px;
+    color: white;
+  }
+
+
+  .health {
+    font-size: 23px;
+    color: white;
+  }
+
+
+  .about {
+    font-size: 23px;
+    color: white;
+  }
+
+  .headbase {
+    position: absolute;
+    width: 350px;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 20px;
+    text-align: center;
+    margin: 5px;
+    font-size: 25px;
+  }

@@ -1,22 +1,48 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { 
+  IonContent, 
+  IonHeader, 
+  IonPage, 
+  IonTitle, 
+  IonToolbar, 
+  IonList, 
+  IonItem,
+  IonButton,
+  IonIcon,
+  IonLabel
+} from '@ionic/react';
 import './Home.css';
-
+import { 
+  heartOutline, 
+  alertCircleOutline, 
+  barChartOutline,
+  calendarOutline
+} from 'ionicons/icons';
 const Home: React.FC = () => {
   return (
+    
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Blank</IonTitle>
-        </IonToolbar>
-      </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer />
+        <IonList className='base'>
+          <IonList className='headbase'>
+          <IonLabel>AIVA</IonLabel>
+          <br />
+          <IonLabel>AI Virtual Assistant</IonLabel>
+          </IonList>
+          <IonList className='taBase'>
+            <IonButton className='calendar' fill="clear">
+              <IonIcon icon={calendarOutline} />
+            </IonButton>
+            <IonButton className='finance' fill="clear">
+              <IonIcon icon={barChartOutline} />
+            </IonButton>
+            <IonButton className='health' fill="clear">
+              <IonIcon icon={heartOutline} />
+            </IonButton>
+            <IonButton className='about' fill="clear">
+              <IonIcon icon={alertCircleOutline} />
+            </IonButton>
+          </IonList>
+        </IonList>
       </IonContent>
     </IonPage>
   );
