@@ -1,0 +1,7 @@
+{
+  "name": "AIVA",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
