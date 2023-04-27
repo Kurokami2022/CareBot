@@ -16,8 +16,6 @@
     bottom: 0;
     left: 0;
     right: 0;
-    padding-left: 5px;
-    padding-top: 20px;
   }
 
   .calendar {
@@ -54,6 +52,8 @@
     text-align: center;
     margin: 5px;
     font-size: 25px;
+    border-style: inset;
+    border-color: linear-gradient(200.89deg, rgba(0, 102, 255, 0.6) 26.42%, rgba(171, 109, 233, 0.6) 67.68%);
   }
 
   .aipic {
@@ -78,6 +78,8 @@
     font-family: 'Luckiest Guy', cursive;
     color: white;
     background: rgba(0, 0, 0, 0.5);
+    border-style: inset;
+    border-color: linear-gradient(200.89deg, rgba(0, 102, 255, 0.6) 26.42%, rgba(171, 109, 233, 0.6) 67.68%);
   }
 
   .btnfeat {
@@ -89,15 +91,18 @@
     font-family: 'Luckiest Guy', cursive;
     color: white;
     background: rgba(0, 0, 0, 0.5);
+    border-style: inset;
+    border-color: linear-gradient(200.89deg, rgba(0, 102, 255, 0.6) 26.42%, rgba(171, 109, 233, 0.6) 67.68%);
   }
 
   .purpcontent {
     font-size: 20px;
-    margin-left: 15px;
+    margin: 10px;
     color: black;
     font-family: 'Bangers', cursive;
     font-family: 'Luckiest Guy', cursive;
     text-align: center;
+    
   }
 
   .purp {
@@ -105,18 +110,23 @@
     background-color: white;
     padding: 5px;
     font-size: 30px;
+    border-style: inset;
+    border-color: linear-gradient(200.89deg, rgba(0, 102, 255, 0.6) 26.42%, rgba(171, 109, 233, 0.6) 67.68%);
   }
 
-  .stream {
+  .functions {
     border-radius: 10px;
     background-color: white;
-    padding: 5px;
-    font-size: 16px;
+    padding: 0px;
+    border-style: solid;
+    border-color: linear-gradient(200.89deg, blue 26.42%, red 100%);
   }
 
-  .enhance {
-    border-radius: 10px;
-    background-color: white;
-    padding: 5px;
+  .featcontent {
+    font-size: 20px;
+    margin: 10px;
+    color: black;
+    font-family: 'Bangers', cursive;
+    font-family: 'Luckiest Guy', cursive;
+    text-align: center;
   }
-

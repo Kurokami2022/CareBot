@@ -1,0 +1,24 @@
+.tabbar {
+    --background: transparent;
+    --border: none;
+}
+
+.btntime {
+    color: white;
+    font-size: 34px;
+}
+
+.btnfinance {
+    color: white;
+    font-size: 34px;
+}
+
+.btnhealth {
+    color: white;
+    font-size: 34px;
+}
+
+.btnabout {
+    color: white;
+    font-size: 34px;
+}

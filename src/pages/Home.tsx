@@ -42,12 +42,22 @@ const Home: React.FC = () => {
             </IonButtons>
             <IonContent>
               <p className='purpcontent'>
-                <IonLabel className='purp'>PURPOSE</IonLabel><br /><br /><br />
-                <IonLabel className='stream'>Streamlining daily tasks and routines</IonLabel><br /><br />
-                <IonLabel className='enhance'>Enhancing productivity</IonLabel><br />
-                <IonLabel>Providing personalized recommendations</IonLabel><br />
-                <IonLabel>Providing financial guidance</IonLabel><br />
-                <IonLabel>Improving health and wellness</IonLabel>
+                <IonLabel className='purp'>PURPOSE</IonLabel><br />
+                <p className='functions'>
+                <IonLabel >Streamlining daily tasks and routines</IonLabel>
+                </p>
+                <p className='functions'>
+                <IonLabel >Enhancing productivity</IonLabel>
+                </p>
+                <p className='functions'>
+                <IonLabel >Providing personalized recommendations</IonLabel>
+                </p>
+                <p className='functions'>
+                <IonLabel >Providing financial guidance</IonLabel>
+                </p>
+                <p className='functions'>
+                <IonLabel >Improving health and wellness</IonLabel>
+                </p>
               </p>
             </IonContent>
           </IonModal>
@@ -58,10 +68,24 @@ const Home: React.FC = () => {
               <IonButton onClick={() => setIsFeaturesOpen(false)}>Close</IonButton>
             </IonButtons>
             <IonContent>
-              <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni illum quidem recusandae ducimus quos
-              reprehenderit. Veniam, molestias quos, dolorum consequuntur nisi deserunt omnis id illo sit cum qui.
-              Eaque, dicta.
+              <p className='featcontent'>
+                <IonLabel className='purp'>KEY FEATURES</IonLabel><br /> 
+                <p className='functions'>
+                <IonLabel >Manage daily schedule and to-do lists, 
+                setting reminders and notifications for upcoming 
+                events and tasks.</IonLabel>
+                </p>
+                <p className='functions'>
+                <IonLabel >Using AI to analyze a user's spending 
+                  habits and provide personalized financial advice 
+                  and budgeting suggestions.</IonLabel>
+                </p>
+                <p className='functions'>
+                <IonLabel >Personalized health and fitness recommendations
+                   based on physical activity, diet, and sleep patterns, 
+                   as well as tracking their progress and offering 
+                   motivational tips.</IonLabel>
+                </p>
               </p>
             </IonContent>
           </IonModal>
@@ -70,18 +94,7 @@ const Home: React.FC = () => {
           <IonImg src="/public/images/AIVA2.png" alt="AI pic" className='aipic2'/>
           
           <IonList className='taBase'>
-            <IonButton className='calendar' fill="clear">
-              <IonIcon icon={calendarOutline} />
-            </IonButton>
-            <IonButton className='finance' fill="clear">
-              <IonIcon icon={barChartOutline} />
-            </IonButton>
-            <IonButton className='health' fill="clear">
-              <IonIcon icon={heartOutline} />
-            </IonButton>
-            <IonButton className='about' fill="clear">
-              <IonIcon icon={alertCircleOutline} />
-            </IonButton>
+            
           </IonList>
         </IonList>
       </IonContent>

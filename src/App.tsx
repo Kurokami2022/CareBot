@@ -1,7 +1,17 @@
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonApp, IonRouterOutlet, setupIonicReact, IonTabBar, IonTabButton, IonIcon, IonLabel, IonList} from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import { 
+  heartOutline, 
+  alertCircleOutline, 
+  barChartOutline,
+  calendarOutline
+} from 'ionicons/icons';
+import './app.css'
 import Home from './pages/Home';
+import Time from './pages/time';
+import Health from './pages/health';
+import Finance from './pages/finance';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -34,8 +44,38 @@ const App: React.FC = () => (
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>
+        <Route exact path="/time">
+          <Time />
+        </Route>
+        <Route exact path="/finance">
+        <Finance />
+          </Route>
+        <Route exact path="/health">
+          <Health />
+        </Route>
       </IonRouterOutlet>
     </IonReactRouter>
+
+  <IonList className='taBase'>
+  <IonTabBar slot="bottom" className='tabbar'>
+  <IonTabButton tab="time" href="/time" className='btntime'>
+    <IonIcon icon={calendarOutline} className='btntime'/>
+  </IonTabButton>
+
+  <IonTabButton tab="finance" href="/finance">
+    <IonIcon icon={barChartOutline} className='btnfinance'/>
+  </IonTabButton>
+
+  <IonTabButton tab="health" href="/health">
+    <IonIcon icon={heartOutline} className='btnhealth'/>
+  </IonTabButton>
+
+  <IonTabButton tab="about" href="/home">
+    <IonIcon icon={alertCircleOutline} className='btnabout'/>
+  </IonTabButton>
+</IonTabBar>
+</IonList>
+
   </IonApp>
 );
 
