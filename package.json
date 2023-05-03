@@ -23,15 +23,20 @@
     "@types/react-icons": "^3.0.0",
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",
+    "compromise": "^14.8.2",
     "inherits": "^2.0.4",
     "ionicons": "^7.0.0",
+    "natural": "^6.3.0",
+    "natural-brain": "^0.3.2",
+    "node-nlp-rn": "^3.5.2",
     "pandas-js": "^0.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-router": "^5.3.4",
     "react-router-dom": "^5.3.4",
-    "sklearn": "^0.3.0"
+    "sklearn": "^0.3.0",
+    "textrazor": "^2.1.0"
   },
   "devDependencies": {
     "@capacitor/cli": "4.7.3",

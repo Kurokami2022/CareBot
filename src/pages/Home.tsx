@@ -90,8 +90,8 @@ const Home: React.FC = () => {
             </IonContent>
           </IonModal>
 
-          <IonImg src="/public/images/AIVA.png" alt="AI pic" className='aipic'/>
-          <IonImg src="/public/images/AIVA2.png" alt="AI pic" className='aipic2'/>
+          <IonImg src="/images/AIVA.png" alt="AI pic" className='aipic'/>
+          <IonImg src="/images/AIVA2.png" alt="AI pic" className='aipic2'/>
           
           <IonList className='taBase'>
             
