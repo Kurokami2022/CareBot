@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { InputChangeEventDetail } from "@ionic/core";
 import "swiper/swiper-bundle.css";
 import "./Health.css";
 import axios from "axios";
@@ -25,6 +26,7 @@ import {
   IonText,
   IonInput,
 } from "@ionic/react";
+import React from "react";
 
 interface Article {
   title: string;
@@ -36,6 +38,30 @@ interface Article {
 const Health = () => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+  const [inputText, setInputText] = useState("");
+  const [response, setResponse] = useState("");
+
+  const handleInputChange = (event: CustomEvent<InputChangeEventDetail>) => {
+    setInputText(event.detail.value!);
+  };
+
+  const chatbotEndpoint = 'http://localhost:5000/chatbot';
+
+  const sendMessage = async (message: string) => {
+    const response = await axios.post(chatbotEndpoint, { message });
+    return response.data.response;
+  };
+
+  const handleSubmit = async () => {
+    try {
+      if (inputText) {
+        const res = await sendMessage(inputText.trim());
+        setResponse(res);
+      }
+    } catch (error) {
+      console.log("Error fetching response:", error);
+    }
+  };
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -98,14 +124,15 @@ const Health = () => {
           </IonLabel>
             <br /><br />
             <IonItem className="wdyf">
-            <IonLabel position="floating">What do you feel?:</IonLabel>
-            <IonInput type="text" placeholder="e.g. Headache"></IonInput>
+            <IonLabel position="floating">What do you feel?</IonLabel>
+            <IonInput type="text" placeholder="e.g. Headache" value={inputText} onIonChange={handleInputChange} ></IonInput>
             </IonItem>
             <div className="btndiv">
-            <IonButton className="btnsub" fill="clear">Submit</IonButton>
+            <IonButton className="btnsub" fill="clear"  onClick={handleSubmit}>Submit</IonButton>
             </div>
             <div className="label">
               <IonLabel>  
+              {response}
               </IonLabel>
             </div>
         </IonList>          

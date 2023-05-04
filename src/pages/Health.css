@@ -63,7 +63,11 @@
     border-color: aqua;
     border-radius: 10px;
     width: 95%;
-    height: 21%;
+    height: 22%;
     margin-left: 10px;
     margin-top: 6px;
+}
+
+.label {
+    margin-top: 0rem;
 }
