@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Luckiest+Guy&display=swap');
+.base {
+    position: absolute;
+    width: 360px;
+    height: 740px;
+    background: linear-gradient(200.89deg, rgba(0, 102, 255, 0.6) 26.42%, rgba(171, 109, 233, 0.6) 67.68%);
+    font-family: 'Bangers', cursive;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+.swiper {
+    margin-top: -2rem;
+    --background: transparent;
+    --border-color: transparent;  
+}
+
+.mySwiper {
+    margin-top: 2rem;
+    --background: transparent;
+}
+
+.hr {
+    border-style: outset;
+    background-color: black;
+    border-color: aqua;
+    border-radius: 20px;
+    padding: 9px;
+    margin-left: 48px;
+    font-size: 20px;
+}
+
+
+.wdyf {
+    background: black;
+    border-style: outset;
+    border-color: aqua; 
+    border-radius: 20px;
+    font-size: 20px;
+    margin-left: 10px;
+    width: 95%;
+    
+}
+
+.btnsub {
+
+    border-radius: 20px;
+    background-color: aqua;
+    font-size: 20px;
+    color: black;
+    font-family: 'Bangers', cursive;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+.btndiv {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.label {
+    border-style: outset;
+    text-align: center;
+    background-color: black;
+    border-color: aqua;
+    border-radius: 10px;
+    width: 95%;
+    height: 21%;
+    margin-left: 10px;
+    margin-top: 6px;
+}

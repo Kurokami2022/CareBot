@@ -1,68 +1,136 @@
-import React, { useState } from 'react';
-import { 
+import { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
+import "./Health.css";
+import axios from "axios";
+import {
   IonContent,
-  IonHeader, 
-  IonPage, 
-  IonTitle, 
-  IonToolbar, 
-  IonItem, 
-  IonLabel, 
-  IonInput, 
-  IonButton 
-} from '@ionic/react';
-import compromise from 'compromise';
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonList,
+  IonItem,
+  IonButton,
+  IonIcon,
+  IonLabel,
+  IonImg,
+  IonButtons,
+  IonModal,
+  IonCard,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
+  IonCardContent,
+  IonText,
+  IonInput,
+} from "@ionic/react";
 
-interface Database {
-  [key: string]: string;
+interface Article {
+  title: string;
+  description: string;
+  url: string;
+  urlToImage?: string;
 }
 
-const database: Database = {
-  'headache': 'Solutions include taking over-the-counter pain relievers such as acetaminophen or ibuprofen, resting, drinking plenty of fluids, and avoiding triggers such as certain foods or environmental factors',
-  'fever': 'Solutions include drinking plenty of fluids, getting rest, and taking over-the-counter fever-reducing medications such as acetaminophen or ibuprofen.',
-  'cold': 'drink plenty of fluids and rest',
-  'sore throat': 'gargle with warm salt water and rest',
-};
+const Health = () => {
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
 
-const Health: React.FC = () => {
-  const [userInput, setUserInput] = useState('');
-  const [solution, setSolution] = useState('');
-
-  const GetAnswer = () => {
-    const inputDoc = compromise(userInput.toLowerCase());
-    const inputNouns = inputDoc.nouns().out('array');
-    let match = false;
-
-    for (const keyword in database) {
-      const keywordDoc = compromise(keyword);
-      const keywordNouns = keywordDoc.nouns().out('array');
-
-      if (inputNouns.some((noun: string) => keywordNouns.includes(noun))) {
-        setSolution(`Solution: ${database[keyword]}`);
-        match = true;
-        break;
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const response = await axios.get(
+          `https://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=c93e67046baf4ceba52e448f64afb8c2`
+        );
+        setArticles(response.data.articles);
+      } catch (error) {
+        console.log("Error fetching articles:", error);
       }
-    }
+    };
+    fetchArticles();
+  }, []);
 
-    if (!match) {
-      setSolution("Sorry, I don't know the answer to that question.");
-    }
+  const handleArticleClick = (article: Article) => {
+    setSelectedArticle(article);
   };
 
+  const handleCloseModal = () => {
+    setSelectedArticle(null);
+  };
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Health Q&amp;A</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <IonItem>
-          <IonLabel position="floating">What is your health-related question?</IonLabel>
-          <IonInput value={userInput} onIonChange={e => setUserInput(e.detail.value!)}></IonInput>
-        </IonItem>
-        <IonButton expand="block" onClick={GetAnswer}>Get Solution</IonButton>
-        <IonLabel>{solution}</IonLabel>
+      <IonContent fullscreen>
+        <IonList className="base">
+          <IonItem className="swiper">
+            <Swiper
+              spaceBetween={10}
+              slidesPerView={1}
+              autoplay={{ delay: 2000 }}
+              loop={true}
+              className="mySwiper"
+            >
+              {articles.map((article) => (
+                <SwiperSlide key={article.url}>
+                  <div onClick={() => handleArticleClick(article)}>
+                    {article.urlToImage ? (
+                      <img
+                        src={article.urlToImage}
+                        alt={article.title}
+                        style={{ width: "360px", height: "200px" }}
+                      />
+                    ) : (
+                      <img
+                        src="https://via.placeholder.com/150"
+                        alt="placeholder"
+                        style={{ width: "360px", height: "200px" }}
+                      />
+                    )}
+                    <h3 style={{ fontSize: "1.2rem" }}>{article.title}</h3>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </IonItem>
+          <IonLabel className="hr">
+            Health Recommendation
+          </IonLabel>
+            <br /><br />
+            <IonItem className="wdyf">
+            <IonLabel position="floating">What do you feel?:</IonLabel>
+            <IonInput type="text" placeholder="e.g. Headache"></IonInput>
+            </IonItem>
+            <div className="btndiv">
+            <IonButton className="btnsub" fill="clear">Submit</IonButton>
+            </div>
+            <div className="label">
+              <IonLabel>  
+              </IonLabel>
+            </div>
+        </IonList>          
+
+        <IonModal
+          isOpen={selectedArticle !== null}
+          onDidDismiss={handleCloseModal}>
+          <IonCard>
+            <IonCardHeader>
+              <IonCardTitle>{selectedArticle?.title}</IonCardTitle>
+              <IonCardSubtitle>Article</IonCardSubtitle>
+            </IonCardHeader>
+            <IonCardContent>
+              {selectedArticle?.urlToImage && (
+                <IonImg
+                  src={selectedArticle?.urlToImage}
+                  alt={selectedArticle?.title}/>
+              )}
+              <IonText>{selectedArticle?.description}</IonText>
+            </IonCardContent>
+            <IonCardContent>
+              <IonButton onClick={handleCloseModal}>Close</IonButton>
+            </IonCardContent>
+          </IonCard>
+        </IonModal>
       </IonContent>
     </IonPage>
   );

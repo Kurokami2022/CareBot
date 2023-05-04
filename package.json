@@ -36,6 +36,7 @@
     "react-router": "^5.3.4",
     "react-router-dom": "^5.3.4",
     "sklearn": "^0.3.0",
+    "swiper": "^9.2.4",
     "textrazor": "^2.1.0"
   },
   "devDependencies": {
