@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+.base {
+    font-family: 'Oswald', sans-serif;
+    position: absolute;
+    width: 360px;
+    height: 740px;
+    background: linear-gradient(200.89deg, rgba(0, 102, 255, 0.6) 26.42%, rgba(171, 109, 233, 0.6) 67.68%);
+}
+
+.income {
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    margin-left: 1rem;
+    font-size: 15px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-style: inset;
+    font-family: 'Oswald', sans-serif;
+    border-color: linear-gradient(200.89deg, rgba(0, 102, 255, 0.6) 26.42%, rgba(171, 109, 233, 0.6) 67.68%);
+    width: 140px;
+    padding: 5px;
+  }
+
+  .fabutton {
+    margin-bottom: 5rem;
+  }
+
+  .addi{
+    margin-right: 1rem;
+  }
+
+.btnfab {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    color: white;
+}
+
+.test {
+  margin-bottom: 5rem;
+  margin-right: 18rem;
+  text-align: left;
+}
+
+.payments {
+  margin: 20px;
+  border-style: outset;
+  border-radius: 20px;
+  border-color:linear-gradient(200.89deg, rgba(0, 102, 255, 0.6) 26.42%, rgba(171, 109, 233, 0.6) 67.68%);
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 20rem;
+  height: auto;
+}
+
+.payment {
+  margin: 10px;
+}

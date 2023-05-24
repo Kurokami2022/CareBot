@@ -45,23 +45,35 @@ const Health = () => {
     setInputText(event.detail.value!);
   };
 
-  const chatbotEndpoint = 'http://localhost:5000/chatbot';
+  const chatbotEndpoint = "http://localhost:5000/chatbot";
 
-  const sendMessage = async (message: string) => {
-    const response = await axios.post(chatbotEndpoint, { message });
-    return response.data.response;
+  const sendMessage = (message: string) => {
+    return axios
+      .post(chatbotEndpoint, { message })
+      .then((response) => {
+        console.log(response.data);
+        return response.data.response;
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        throw error;
+      });
+  };  
+  
+  const submit = () => {
+    axios
+      .post(chatbotEndpoint, { message:inputText })
+      .then((response) => {
+        console.log(response.data);
+        setResponse(response.data.response)
+        return response.data.response;
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        throw error;
+      });
   };
-
-  const handleSubmit = async () => {
-    try {
-      if (inputText) {
-        const res = await sendMessage(inputText.trim());
-        setResponse(res);
-      }
-    } catch (error) {
-      console.log("Error fetching response:", error);
-    }
-  };
+  
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -113,46 +125,61 @@ const Health = () => {
                         style={{ width: "360px", height: "200px" }}
                       />
                     )}
-                    <h3 style={{ fontSize: "1.2rem" }}>{article.title}</h3>
+                    <h3 style={{ fontSize: "1rem" }}>{article.title}</h3>
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
           </IonItem>
-          <IonLabel className="hr">
-            Health Recommendation
-          </IonLabel>
-            <br /><br />
-            <IonItem className="wdyf">
+          <IonLabel className="hr">Health Recommendation</IonLabel>
+          <br />
+          <br />
+          <IonItem className="wdyf">
             <IonLabel position="floating">What do you feel?</IonLabel>
-            <IonInput type="text" placeholder="e.g. Headache" value={inputText} onIonChange={handleInputChange} ></IonInput>
-            </IonItem>
-            <div className="btndiv">
-            <IonButton className="btnsub" fill="clear"  onClick={handleSubmit}>Submit</IonButton>
-            </div>
-            <div className="label">
-              <IonLabel>  
-              {response}
-              </IonLabel>
-            </div>
-        </IonList>          
+            <IonInput
+              type="text"
+              placeholder="e.g. Headache"
+              value={inputText}
+              onIonChange={handleInputChange}
+            ></IonInput>
+          </IonItem>
+          <div className="btndiv">
+            <IonButton className="btnsub" fill="clear" onClick={submit}>
+              Submit
+            </IonButton>
+          </div>
+          <div className="label">
+            <IonLabel>{response}</IonLabel>
+          </div>
+        </IonList>
 
         <IonModal
           isOpen={selectedArticle !== null}
-          onDidDismiss={handleCloseModal}>
+          onDidDismiss={handleCloseModal}
+        >
           <IonCard>
             <IonCardHeader>
               <IonCardTitle>{selectedArticle?.title}</IonCardTitle>
-              <IonCardSubtitle>Article</IonCardSubtitle>
+              <IonCardSubtitle>{selectedArticle?.url}</IonCardSubtitle>
             </IonCardHeader>
             <IonCardContent>
               {selectedArticle?.urlToImage && (
                 <IonImg
                   src={selectedArticle?.urlToImage}
-                  alt={selectedArticle?.title}/>
+                  alt={selectedArticle?.title}
+                />
               )}
               <IonText>{selectedArticle?.description}</IonText>
+              <br />
+              <IonButton
+                onClick={() => window.open(selectedArticle?.url, "_blank")}
+                fill="clear"
+                color="primary"
+              >
+                Read more
+              </IonButton>
             </IonCardContent>
+
             <IonCardContent>
               <IonButton onClick={handleCloseModal}>Close</IonButton>
             </IonCardContent>

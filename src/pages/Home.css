@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
 .base {
+    font-family: 'Oswald', sans-serif;
     position: absolute;
     width: 360px;
     height: 740px;
     background: linear-gradient(200.89deg, rgba(0, 102, 255, 0.6) 26.42%, rgba(171, 109, 233, 0.6) 67.68%);
-    font-family: 'Bangers', cursive;
-    font-family: 'Luckiest Guy', cursive;
-}
+  }
 
   .taBase {
     position: absolute;
@@ -16,6 +15,7 @@
     bottom: 0;
     left: 0;
     right: 0;
+    font-family: 'Oswald', sans-serif;
   }
 
   .calendar {
@@ -43,7 +43,7 @@
   .headbase {
     position: absolute;
     width: 350px;
-    height: 80px;
+    height: 98px;
     background: rgba(0, 0, 0, 0.5);
     top: 0;
     left: 0;
@@ -53,6 +53,7 @@
     margin: 5px;
     font-size: 25px;
     border-style: inset;
+    font-family: 'Oswald', sans-serif;
     border-color: linear-gradient(200.89deg, rgba(0, 102, 255, 0.6) 26.42%, rgba(171, 109, 233, 0.6) 67.68%);
   }
 
@@ -74,11 +75,10 @@
     margin-top: 10rem;
     margin-left: 10rem;
     font-size: 15px;
-    font-family: 'Bangers', cursive;
-    font-family: 'Luckiest Guy', cursive;
     color: white;
     background: rgba(0, 0, 0, 0.5);
     border-style: inset;
+    font-family: 'Oswald', sans-serif;
     border-color: linear-gradient(200.89deg, rgba(0, 102, 255, 0.6) 26.42%, rgba(171, 109, 233, 0.6) 67.68%);
   }
 
@@ -87,11 +87,10 @@
     margin-top: 14rem;
     margin-left: 7rem;
     font-size: 15px;
-    font-family: 'Bangers', cursive;
-    font-family: 'Luckiest Guy', cursive;
     color: white;
     background: rgba(0, 0, 0, 0.5);
     border-style: inset;
+    font-family: 'Oswald', sans-serif;
     border-color: linear-gradient(200.89deg, rgba(0, 102, 255, 0.6) 26.42%, rgba(171, 109, 233, 0.6) 67.68%);
   }
 
@@ -99,10 +98,8 @@
     font-size: 20px;
     margin: 10px;
     color: black;
-    font-family: 'Bangers', cursive;
-    font-family: 'Luckiest Guy', cursive;
     text-align: center;
-    
+    font-family: 'Oswald', sans-serif;
   }
 
   .purp {
@@ -111,6 +108,7 @@
     padding: 5px;
     font-size: 30px;
     border-style: inset;
+    font-family: 'Oswald', sans-serif;
     border-color: linear-gradient(200.89deg, rgba(0, 102, 255, 0.6) 26.42%, rgba(171, 109, 233, 0.6) 67.68%);
   }
 
@@ -126,11 +124,11 @@
     font-size: 20px;
     margin: 10px;
     color: black;
-    font-family: 'Bangers', cursive;
-    font-family: 'Luckiest Guy', cursive;
     text-align: center;
+    font-family: 'Oswald', sans-serif;
   }
 
   .swiper {
     margin-top: 1rem;
   }
+

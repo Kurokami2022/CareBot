@@ -6,7 +6,7 @@
   "scripts": {
     "start": "concurrently \"npm run start-react\" \"npm run start-flask\"",
     "start-react": "ionic serve start",
-    "start-flask": "python test.py",
+    "start-flask": "python backend/aiva_health.py",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test.e2e": "cypress run",
@@ -25,6 +25,7 @@
     "@types/react-icons": "^3.0.0",
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",
+    "better-sqlite3": "^8.3.0",
     "compromise": "^14.8.2",
     "inherits": "^2.0.4",
     "ionicons": "^7.0.0",
@@ -38,6 +39,7 @@
     "react-router": "^5.3.4",
     "react-router-dom": "^5.3.4",
     "sklearn": "^0.3.0",
+    "sqlite3": "^5.1.6",
     "swiper": "^9.2.4",
     "textrazor": "^2.1.0"
   },
@@ -46,6 +48,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
+    "@types/better-sqlite3": "^7.6.4",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
