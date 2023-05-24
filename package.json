@@ -4,9 +4,10 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "start": "concurrently \"npm run start-react\" \"npm run start-flask\"",
+    "start": "concurrently \"npm run start-react\" \"npm run start-flask\" \" npm run start-flask2",
     "start-react": "ionic serve start",
     "start-flask": "python backend/aiva_health.py",
+    "start-flask2": "python backend/aiva_finance.py",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test.e2e": "cypress run",
