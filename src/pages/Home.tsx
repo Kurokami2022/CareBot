@@ -29,8 +29,8 @@ const Home: React.FC = () => {
       <IonContent fullscreen>
         <IonList className="base">
           <IonList className="headbase">
-            <IonLabel>AIVA</IonLabel> <br />
-            <IonLabel>AI Virtual Assistant</IonLabel>
+            <IonLabel>CareBot</IonLabel> <br />
+            <IonLabel>Health Care Companion</IonLabel>
           </IonList>
 
           <IonButton

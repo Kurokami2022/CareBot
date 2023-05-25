@@ -19,19 +19,46 @@ income = curr.fetchall()
 
 conn.commit()
 
+
 def close_connection():
     conn.close()
 
+
 atexit.register(close_connection)
 
+
 @app.route("/api/finance", methods=['POST'])
-def HandleRequest():
+def handle_request():
     finance_data = {
         'income': income,
         'payments': payments,
         'category': category
     }
     return jsonify(finance_data)
+
+
+@app.route("/api/delete-payment", methods=['POST'])
+def delete_payment():
+    payment = request.json.get('payment')
+    category = request.json.get('category')
+    print('Received payment:', payment)
+    print('Received category:', category)
+    if payment is not None and category is not None:
+        curr.execute("DELETE FROM tblPayment WHERE payment=? AND category=?", (payment, category))
+        conn.commit()
+
+        curr.execute("SELECT payment FROM tblPayment")
+        updated_payments = curr.fetchall()
+        curr.execute("SELECT category FROM tblPayment")
+        updated_category = curr.fetchall()
+
+        return jsonify({'message': 'Payment deleted successfully', 'payments': updated_payments, 'category': updated_category})
+    else:
+        return jsonify({'error': 'Invalid payment or category'})
+
+
+
+
 
 if __name__ == '__main__':
     app.run(port=4000)

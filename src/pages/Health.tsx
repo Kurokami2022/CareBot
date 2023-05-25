@@ -131,7 +131,7 @@ const Health = () => {
               ))}
             </Swiper>
           </IonItem>
-          <IonLabel className="hr">Health Recommendation</IonLabel>
+          <div className="hr">Health Recommendation</div>
           <br />
           <br />
           <IonItem className="wdyf">
