@@ -51,7 +51,7 @@ const Health = () => {
     return axios
       .post(chatbotEndpoint, { message })
       .then((response) => {
-        console.log(response.data);
+        console.log('response----->', response.data);
         return response.data.response;
       })
       .catch((error) => {
