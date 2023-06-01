@@ -1,0 +1,65 @@
+.base {
+    position: absolute;
+    width: 360px;
+    height: 740px;
+    background: linear-gradient(200.89deg, rgba(0, 102, 255, 0.6) 26.42%, rgba(171, 109, 233, 0.6) 67.68%);
+    font-family: 'Bangers', cursive;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+.date {
+    width: 95%;
+    margin-left: 10px;
+    text-align: center;
+    margin-top: 1rem;
+    border-radius: 20px;
+    --background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border-style: inset;
+}
+
+.calendar {
+    border-radius: 20px;
+    margin-top: 1rem;
+   width: 100%;
+   height: auto;
+   margin-bottom: 1rem;
+}
+
+.todobase {
+    margin: 10px;
+    height: 200px;
+    padding: 10px;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border-style: inset;
+}
+
+.todoitem {
+    --background: none;
+    text-align: left;
+    
+}
+
+.done {
+    font-size: 10px;
+    color: lightgreen;
+}
+
+.todotext{
+    margin-right: -5rem ;
+}
+
+.alert {
+    width: 20px;
+    margin-right: 10px;
+    margin-left: -10px;
+}
+
+.btntodo {
+    margin-left: 10px;
+    border-radius: 20px;
+    background-color: green;
+    color: white;
+}

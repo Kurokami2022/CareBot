@@ -7,12 +7,12 @@ from fuzzywuzzy import fuzz, process
 app = Flask(__name__)
 CORS(app, methods=['GET', 'POST', 'OPTIONS'])
 
-conn = sqlite3.connect('healthdata.db')
+conn = sqlite3.connect('databases/healthdata.db')
 patterns = []
 
 def load_chatbot():
     global patterns
-    conn = sqlite3.connect('healthdata.db')
+    conn = sqlite3.connect('databases/healthdata.db')
     c = conn.cursor()
     c.execute("SELECT pattern, response FROM chatbot")
     data = c.fetchall()
@@ -23,6 +23,7 @@ def load_chatbot():
         (r'how are you?', ['I am doing well, thank you!', 'I am a machine, I don\'t have feelings.']),
         (r'what is your name?', ['My name is CareBot!', 'I am CareBot, nice to meet you!']),
         (r'bye|goodbye', ['Goodbye!', 'See you later!', 'Take care!']),
+        (r'Okay|thanks', ['Take care!']),
         (r'(.*)', ['Sorry, I didn\'t understand what you said.'])
     ]
 

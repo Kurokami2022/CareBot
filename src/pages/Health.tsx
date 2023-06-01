@@ -25,6 +25,7 @@ import {
   IonCardContent,
   IonText,
   IonInput,
+  IonAlert
 } from "@ionic/react";
 import React from "react";
 
@@ -55,7 +56,13 @@ const Health = () => {
         return response.data.response;
       })
       .catch((error) => {
-        console.error('Error:', error);
+        <IonAlert
+        trigger="present-alert"
+        header="Error"
+        subHeader="Important message"
+        message="There is an error in sending the message!"
+        buttons={['OK']}
+      ></IonAlert>
         throw error;
       });
   };  
@@ -69,7 +76,13 @@ const Health = () => {
         return response.data.response;
       })
       .catch((error) => {
-        console.error('Error:', error);
+        <IonAlert
+        trigger="present-alert"
+        header="Error"
+        subHeader="Important message"
+        message="There is an error in sending the request!"
+        buttons={['OK']}
+      ></IonAlert>
         throw error;
       });
   };
@@ -83,7 +96,13 @@ const Health = () => {
         );
         setArticles(response.data.articles);
       } catch (error) {
-        console.log("Error fetching articles:", error);
+        <IonAlert
+        trigger="present-alert"
+        header="Error"
+        subHeader="Important message"
+        message="There is an error in fetching the articles!"
+        buttons={['OK']}
+      ></IonAlert>
       }
     };
     fetchArticles();
