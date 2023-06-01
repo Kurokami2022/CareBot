@@ -19,3 +19,8 @@ Files
 - `Time.css` - One of the key features of our app, where you can add todos and you can mark them as done, you can also view calendar in this page.
 - `databases` - This is where we store the database used for the health and time.
 - `backend` - this is where the backend files are, we used python for our backend.
+
+Members
+- `Head Developer` - Gerome M. Blanco
+- `Front-End Developer/Database Assistant` - Ronald Calzada
+-  `Font-End Developer/Database Assistant` - Jiro Piolo Marcos
