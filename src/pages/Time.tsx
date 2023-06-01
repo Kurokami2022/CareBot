@@ -1,6 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle,IonDatetime, IonAlert, IonToolbar, IonButton, IonModal, IonInput, IonList, IonItem, IonIcon, IonLabel } from '@ionic/react';
-import { calendarOutline, alertCircleOutline, checkmarkDoneOutline } from 'ionicons/icons';
+import { 
+  IonContent, 
+  IonToast , 
+  IonPage, 
+  IonTitle,
+  IonDatetime, 
+  IonToolbar, 
+  IonButton, 
+  IonModal, 
+  IonInput, 
+  IonList, 
+  IonItem, 
+  IonIcon, 
+  IonLabel 
+} from '@ionic/react';
+import { 
+  calendarOutline, 
+  alertCircleOutline, 
+  checkmarkDoneOutline 
+} from 'ionicons/icons';
 import axios from 'axios';
 import "./Time.css";
 
@@ -13,6 +31,8 @@ const Time: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [todos, setTodos] = useState<Todo[]>([]);
   const [newTodo, setNewTodo] = useState('');
+  const [errorToast, setErrorToast] = useState<string | null>(null);
+
 
   useEffect(() => {
     fetchTodos();
@@ -22,14 +42,9 @@ const Time: React.FC = () => {
     try {
       const response = await axios.get<Todo[]>('http://localhost:4100/api/todos');
       setTodos(response.data);
+      console.log("response====>", response.data);
     } catch (error) {
-      <IonAlert
-        trigger="present-alert"
-        header="Error"
-        subHeader="Important message"
-        message="There is an error Fetching Todos!"
-        buttons={['OK']}
-      ></IonAlert>
+      setErrorToast(String(error));
     }
   };
 
@@ -42,13 +57,7 @@ const Time: React.FC = () => {
         setShowModal(false);
       }
     } catch (error) {
-      <IonAlert
-        trigger="present-alert"
-        header="Error"
-        subHeader="Important message"
-        message="There is an error Adding Todo!"
-        buttons={['OK']}
-      ></IonAlert>
+      setErrorToast(String(error));
     }
   };
 
@@ -57,13 +66,7 @@ const Time: React.FC = () => {
       await axios.delete(`http://localhost:4100/api/todos/${id}`);
       fetchTodos();
     } catch (error) {
-      <IonAlert
-        trigger="present-alert"
-        header="Error"
-        subHeader="Important message"
-        message="There is an error Deleting Todo!"
-        buttons={['OK']}
-      ></IonAlert>
+      setErrorToast(String(error));
     }
   };
 
@@ -112,6 +115,14 @@ const Time: React.FC = () => {
         <IonDatetime presentation="date" className='calendar'></IonDatetime>
         </IonItem>
         </IonList>
+        <IonToast
+          isOpen={errorToast !== null}
+          onDidDismiss={() => setErrorToast(null)}
+          message={errorToast || ''}
+          duration={3000}
+          position="top"
+          color="danger"
+        />
       </IonContent>
     </IonPage>
   );

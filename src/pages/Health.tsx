@@ -6,17 +6,12 @@ import "./Health.css";
 import axios from "axios";
 import {
   IonContent,
-  IonHeader,
   IonPage,
-  IonTitle,
-  IonToolbar,
   IonList,
   IonItem,
   IonButton,
-  IonIcon,
   IonLabel,
   IonImg,
-  IonButtons,
   IonModal,
   IonCard,
   IonCardHeader,
@@ -25,9 +20,8 @@ import {
   IonCardContent,
   IonText,
   IonInput,
-  IonAlert
+  IonToast
 } from "@ionic/react";
-import React from "react";
 
 interface Article {
   title: string;
@@ -41,6 +35,7 @@ const Health = () => {
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [inputText, setInputText] = useState("");
   const [response, setResponse] = useState("");
+  const [errorToast, setErrorToast] = useState<string | null>(null);
 
   const handleInputChange = (event: CustomEvent<InputChangeEventDetail>) => {
     setInputText(event.detail.value!);
@@ -56,13 +51,7 @@ const Health = () => {
         return response.data.response;
       })
       .catch((error) => {
-        <IonAlert
-        trigger="present-alert"
-        header="Error"
-        subHeader="Important message"
-        message="There is an error in sending the message!"
-        buttons={['OK']}
-      ></IonAlert>
+        setErrorToast(String(error));
         throw error;
       });
   };  
@@ -76,13 +65,7 @@ const Health = () => {
         return response.data.response;
       })
       .catch((error) => {
-        <IonAlert
-        trigger="present-alert"
-        header="Error"
-        subHeader="Important message"
-        message="There is an error in sending the request!"
-        buttons={['OK']}
-      ></IonAlert>
+        setErrorToast(String(error));
         throw error;
       });
   };
@@ -96,13 +79,7 @@ const Health = () => {
         );
         setArticles(response.data.articles);
       } catch (error) {
-        <IonAlert
-        trigger="present-alert"
-        header="Error"
-        subHeader="Important message"
-        message="There is an error in fetching the articles!"
-        buttons={['OK']}
-      ></IonAlert>
+        setErrorToast(String(error));
       }
     };
     fetchArticles();
@@ -204,6 +181,14 @@ const Health = () => {
             </IonCardContent>
           </IonCard>
         </IonModal>
+        <IonToast
+          isOpen={errorToast !== null}
+          onDidDismiss={() => setErrorToast(null)}
+          message={errorToast || ''}
+          duration={3000}
+          position="top"
+          color="danger"
+        />
       </IonContent>
     </IonPage>
   );

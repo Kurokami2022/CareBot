@@ -39,7 +39,6 @@ def delete_todo(id):
     conn.close()
     return jsonify({'message': 'Todo deleted successfully'})
 
-
 if __name__ == '__main__':
     conn = get_db()
     cursor = conn.cursor()
